@@ -22,12 +22,14 @@ async function setup() {
 
 function draw(){
   //local var that control the sahpe of the triangle or mountiains. 
+  // in this function it has shape, color, stroke, and reapted loop.
   let a = 500; let b = 750; let c = 1000;
   let d = 600; let e = 700; let f = 800
   background(value);
-  circle(200,200,300); fill(orla); stroke("white");
+  circle(200,200,300); stroke("white");
   fill(94, 134, 96);
   rect(0, 600, 999999, 999999);
+  // this is to attach an image on mouse pointer so it moves when pointer is moving.
   image(open, mouseX, mouseY, 50,50);
 
   if(dir === 1){
@@ -42,6 +44,7 @@ function draw(){
       value = 255;
     image(open, mouseX, mouseY, 50,50);
   }
+  // the two loop will reaptly make 11 mountain across the x axis by 100
   for(let i = 0; i < 11; i++){
     fill(109);
     stroke(255);
@@ -51,7 +54,7 @@ function draw(){
     triangle(a, 800, b, 100, c, 800);
   }
 
-
+  // Small mountain but with same function as the previous
   for(let i = 0; i < 11; i++){
     stroke(255);
     fill(153, 144, 121);
@@ -60,12 +63,18 @@ function draw(){
     f += 100;
     triangle(d, 750, e, 500, f, 750);
   }
+  // cool signiture that will appear near bottom right corner
   text('James.W', 1500, 900)
   
 
  
 }
-
+// this captures mouse is pressing and when clicked it will add dir var by one 
+// then will trigger the one of two dir statement and when is = to 3 it will reset it self
+// bug solution: putting circle and fill with yellow again so it dosen't appear to be green 
+// also to set a blank between the statement. 
+// ex. click background white, click again background black eye close, click again back ground white and sun is yellow instead of green eye open.
+// 
 function mousePressed(){
   dir ++; 
   if(dir === 3) dir = 0; 
