@@ -19,7 +19,7 @@ async function setup() {
   
 }
 
-
+// this function is to make code into the canvas aswell the control or interactive
 function draw(){
   //local var that control the sahpe of the triangle or mountiains. 
   // in this function it has shape, color, stroke, and reapted loop.
