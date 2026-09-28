@@ -8,8 +8,8 @@
 let open;
 let close;
 // the vaule var is to control background lightening
-// dir var was initially used for several different statement for different function.
-let value = 255; let dir = 0; 
+// currentBack var was initially used for several different statement for different function.
+let value = 255; let currentBack = 0; 
 
 async function setup() {
   // this load two image 
@@ -26,18 +26,19 @@ function draw(){
   let a = 500; let b = 750; let c = 1000;
   let d = 600; let e = 700; let f = 800
   background(value);
+  fill("yellow");
   circle(200,200,300); stroke("white");
   fill(94, 134, 96);
   rect(0, 600, 999999, 999999);
   // this is to attach an image on mouse pointer so it moves when pointer is moving.
   image(open, mouseX, mouseY, 50,50);
 
-  if(dir === 1){
+  if(currentBack === 1){
     value --;
     fill(177, 209, 208); circle(200,200,300); 
     image(close, mouseX, mouseY, 50,50);
   }
-  else if(dir === 2){
+  else if(currentBack === 2){
     value++;
     fill("yellow"); circle(200,200,300); 
     if(value > 255) 
@@ -76,8 +77,8 @@ function draw(){
 // ex. click background white, click again background black eye close, click again back ground white and sun is yellow instead of green eye open.
 // 
 function mousePressed(){
-  dir ++; 
-  if(dir === 3) dir = 0; 
+  currentBack ++; 
+  if(currentBack === 3) currentBack = 0; 
   circle(200,200,300); fill("yellow");
   image(open, mouseX, mouseY, 50,50);
 
