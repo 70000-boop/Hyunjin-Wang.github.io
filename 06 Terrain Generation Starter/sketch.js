@@ -44,8 +44,9 @@ function keyPressed() {
 }
 
 
-// this generate reasonable height and slope of terrain while using noise function
-// 
+// this generate reasonable random height and slope of terrain while using noise function
+// the rectangle will generate continously to the left so it can create a visual effect
+
 function generateTerrain() {
   // to reset the local variable from global variable
   highest = 0;
@@ -89,7 +90,7 @@ function planning(x,y){
   fill(255);
 }
 
-// draw overall main goal of hte structure
+// draw overall main goal of the structure
 
 function draw() {
   background(220);
