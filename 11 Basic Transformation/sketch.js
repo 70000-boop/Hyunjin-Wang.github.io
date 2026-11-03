@@ -45,12 +45,12 @@ function draw() {
 
   //transformation three: ROTATION
   //reminder: rotations are measured in radians, not degrees! Functions can help with the conversion...
-  angleMode(DEGREES);
-  translate(200,200);
-  rotate(frameCount);
-  drawBasicGrid();
+  // angleMode(DEGREES);
+  // translate(200,200);
+  // rotate(frameCount);
+  // drawBasicGrid();
 
-  face(mouseX,0);
+  // face(mouseX,0);
 
   //Combinations of Transformations
 

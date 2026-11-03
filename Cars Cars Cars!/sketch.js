@@ -5,9 +5,22 @@
 let eastbound = [];
 let westbound = [];
 let type;
+
+
 async function setup() {
   createCanvas(windowWidth, windowHeight);
   
+}
+
+function draw() {
+  background(255);
+  drawRoad();
+  for(n of eastbound){
+
+  }
+  for(l of westbound){
+    
+  }
 }
 
 function drawRoad() {
@@ -22,22 +35,17 @@ function drawRoad() {
 }
 
 function mousePressed() {
-  if (keyPressed("LEFT")) {
-    eastbound.push(new (car(, y)));
-    westbound.push(new (car(x, y)));
+  if (mousePressed.LEFT) {
+    eastbound.push(new (car(width, random(height /2, height +260))));
+    westbound.push(new (car(0, random(height /2 - 250, height - 740))));
   }
 
-  if (keyPressed("RIGHT")) {
-    eastbound.pop(new (car(x, y)));
-    westbound.pop(new (car(x, y)));
+  if (mousePressed.CENTER) {
+    eastbound.pop;
+    westbound.pop;
   }
 }
 
-
-function draw() {
-  background(255);
-  drawRoad();
-}
 
 class car {
 
@@ -51,11 +59,11 @@ class car {
     this.timeShift = 1; this.maxSpeed = 1;
 
     this.direction = 0;
-    this.type = 0
+    this.type = 0;
   }
 
   display() {
-    type = random(0,1)
+    type = random(0,1);
 
     if (type === 0) {
       rect(this.y + 10, this.y - 10, 35, 20);
