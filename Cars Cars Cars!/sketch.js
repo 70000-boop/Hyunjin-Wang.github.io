@@ -16,7 +16,7 @@ function draw() {
   background(255);
   drawRoad();
   for(n of eastbound){
-
+    n.action();
   }
   for(l of westbound){
     
@@ -35,19 +35,21 @@ function drawRoad() {
 }
 
 function mousePressed() {
-  if (mousePressed.LEFT) {
-    eastbound.push(new (car(width, random(height /2, height +260))));
-    westbound.push(new (car(0, random(height /2 - 250, height - 740))));
+
+  if (mouseButton.left) {
+    console.log("east");
+    eastbound.push(new Car(0, random(height /2, height +260)));
+    westbound.push(new Car(0, random(height /2 - 250, height - 740)));
   }
 
-  if (mousePressed.CENTER) {
-    eastbound.pop;
-    westbound.pop;
+  if (mouseButton.center) {
+    eastbound.pop();
+    westbound.pop();
   }
 }
 
 
-class car {
+class Car {
 
   constructor(x, y) {
     this.x = x; this.y = y;
@@ -59,21 +61,22 @@ class car {
     this.timeShift = 1; this.maxSpeed = 1;
 
     this.direction = 0;
-    this.type = 0;
+    this.type = round(random(0,1));
   }
 
   display() {
-    type = random(0,1);
+    
 
-    if (type === 0) {
-      rect(this.y + 10, this.y - 10, 35, 20);
-      rect(this.y + 105, this.y - 10, 35, 20);
-      rect(this.y + 10, this.y + 50, 35, 20);
-      rect(this.y + 105, this.y + 50, 35, 20);
+    if (this.type === 0) {
+      fill(255);
+      rect(this.x + 10, this.y - 10, 35, 20);
+      rect(this.x + 105, this.y - 10, 35, 20);
+      rect(this.x + 10, this.y + 50, 35, 20);
+      rect(this.x + 105, this.y + 50, 35, 20);
       rect(this.x, this.y, 150, 60);
 
     }
-    if (type === 1) {
+    if (this.type === 1) {
       rect(this.y + 10, this.y - 10, 35, 20);
       rect(this.y + 105, this.y - 10, 35, 20);
       rect(this.y + 10, this.y + 50, 35, 20);
@@ -106,6 +109,7 @@ class car {
   }
 
   action() {
-
+    this.move();
+    this.display();
   }
 }
